@@ -1,8 +1,4 @@
-# LibkkcRuby
-
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/libkkc_ruby`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+# libkkc_ruby
 
 ## Installation
 
@@ -22,7 +18,30 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+@kkc = LibKKC::Core.new
+
+@kkc.convert('にじいろにかがやく')
+#=> '虹色に輝く'
+
+@kkc.convert_n_best('おもいのままたのしんじゃえ', n_best: 2, boundary: [0, 3, 6, 9])
+#=> [
+#     '思いのまま楽しんじゃ絵',
+#     '思いのまま楽しんじゃえ'
+#   ]
+
+@kkc.segmentalize_n_best('すたーとしよう', n_best: 2, boundary: [0, 4])
+#=> [
+#     [
+#       #<LibKKC::Segment:0x00005610f9558380 @output="スタート" @input="すたーと">,
+#       #<LibKKC::Segment:0x00005610f9558330 @output="しよう" @input="しよう">
+#     ],
+#     [
+#       #<LibKKC::Segment:0x00005610f9558308 @output="スタート" @input="すたーと">,
+#       #<LibKKC::Segment:0x00005610f9558290 @output="仕様" @input="しよう">
+#     ]
+#   ]
+```
 
 ## Development
 
@@ -32,4 +51,4 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/libkkc_ruby.
+Bug reports and pull requests are welcome on GitHub at https://github.com/yamasy1549/libkkc_ruby.
