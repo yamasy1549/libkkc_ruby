@@ -1,5 +1,3 @@
 require "libkkc_ruby/version"
-
-module LibkkcRuby
-  # Your code goes here...
-end
+require "libkkc_ruby/core"
+require "libkkc_ruby/segment"
