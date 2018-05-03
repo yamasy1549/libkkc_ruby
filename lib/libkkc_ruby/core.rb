@@ -40,6 +40,7 @@ module LibKKC
     # #=> [[Segment, ...], ...]
     #
     def segmentalize_n_best(sentence, n_best: 1, boundary: nil)
+      return [] if sentence.empty?
       command = "echo '#{sentence} #{n_best} #{boundary}' | kkc"
 
       run_command(command) do |kkc_io|
